@@ -8,6 +8,10 @@ app = Flask(__name__)
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static/assets'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 @app.route('/<string:page>')
 def pageIndex(page):
     return render_template(page)
